@@ -1,3 +1,4 @@
+
 # 🌳 Tree Species Classification
 
 This project is about building a machine learning model to classify **tree species** using dataset features.  
@@ -125,3 +126,8 @@ This screenshot displays the model's training process over multiple epochs, show
 This plot visualizes the model's performance during training, comparing the accuracy and loss for both the training and validation datasets.
 
 ![Accuracy and Loss Plots](![Images/Screenshot 4.png](<Screenshot 4.png>))
+
+
+# Rishu-Week-1-Tree-Species-Classification
+🌳 Tree_Species_Classification: This project focuses on building a machine learning model that classifies tree species based on their images. The goal is to leverage deep learning techniques for identifying different species efficiently, which can be useful for biodiversity research, forestry management, and environmental monitoring.
+
