@@ -127,6 +127,10 @@ This plot visualizes the model's performance during training, comparing the accu
 
 ![Accuracy and Loss Plots](![Images/Screenshot 4.png](<Screenshot 4.png>))
 
+# Now for week 2- I have to include the output images and frontend and backend sourse file!!
+1. ![Output-](Output-.png)
+2. ![Output](Output.png)
+
 
 # Rishu-Week-1-Tree-Species-Classification
 🌳 Tree_Species_Classification: This project focuses on building a machine learning model that classifies tree species based on their images. The goal is to leverage deep learning techniques for identifying different species efficiently, which can be useful for biodiversity research, forestry management, and environmental monitoring.

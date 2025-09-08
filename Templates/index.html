@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tree Species Prediction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
+    <h1 class="text-3xl font-bold text-center text-green-700 mb-6">Tree Species Classifier</h1>
+    
+    <form id="uploadForm" class="flex flex-col items-center gap-4">
+      <input type="file" name="file" accept="image/*" class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200" required>
+      <button type="submit" class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition-colors">Predict</button>
+    </form>
+
+    <div class="mt-6 text-center">
+      <h2 class="text-xl font-semibold text-green-700 mb-2">Uploaded Image:</h2>
+      <img id="preview" src="" alt="Image Preview" class="mx-auto rounded-lg shadow-lg max-h-64">
+    </div>
+
+    <div class="mt-6 text-center">
+      <h2 class="text-xl font-semibold text-green-700 mb-2">Prediction Result:</h2>
+      <pre id="result" class="bg-green-100 p-4 rounded-lg text-left text-gray-700"></pre>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const preview = document.getElementById('preview');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const file = form.file.files[0];
+      if(file){
+        preview.src = URL.createObjectURL(file); // Show image preview
+      }
+
+      const formData = new FormData(form);
+      const response = await fetch('/predict', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+      if(data.error){
+        result.innerText = data.error;
+      } else {
+        result.innerText = `Class: ${data.predicted_class}\nConfidence: ${data.confidence}%`;
+      }
+    });
+  </script>
+  
+</body>
+</html>
